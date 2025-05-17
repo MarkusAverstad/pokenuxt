@@ -14,6 +14,9 @@ export default defineNuxtConfig({
     '@types': resolve(__dirname, './src/types'),
     '@utils': resolve(__dirname, './src/utils'),
   },
+  ignore: [
+    '**/*.test.*',
+  ],
   compatibilityDate: '2024-11-01',
   typescript: {
     typeCheck: true,
