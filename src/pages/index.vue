@@ -23,6 +23,7 @@ const pokemonStore = usePokemonStore()
       >
         Previous page
       </button>
+      {{ 'Page' + pokemonStore.currentPage + ' / ' + pokemonStore.totalPages }}
       <button
         :disabled="!pokemonStore.hasNextPage"
         @click="pokemonStore.goToNextPage"

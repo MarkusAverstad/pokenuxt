@@ -30,6 +30,11 @@ export interface PokemonType {
   url: string
 }
 
+interface PokemonInType {
+  pokemon: PokemonSpecies
+  slot: number
+}
+
 export interface TypeResponse {
-  pokemon: PokemonSpecies[]
+  pokemon: PokemonInType[]
 }

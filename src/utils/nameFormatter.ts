@@ -1,4 +1,9 @@
-export const formatPokemonName = (name: string) => {
+import type { PokemonSpecies } from '@types'
+
+export const formatPokemonName = (pokemon: PokemonSpecies | { pokemon: PokemonSpecies }) => {
+  // Handle nested pokemon object from type filtering
+  const name = 'pokemon' in pokemon ? pokemon.pokemon.name : pokemon.name
+
   // Handle special cases first
   const specialCases: Record<string, string> = {
     'nidoran-f': 'Nidoran♀',
@@ -8,18 +13,18 @@ export const formatPokemonName = (name: string) => {
     'type-null': 'Type: Null',
     'ho-oh': 'Ho-Oh',
     'porygon-z': 'Porygon-Z',
-    // Add more special cases as needed
+    // TODO: Add more special cases as needed
   }
 
   if (name in specialCases) {
     return specialCases[name]
   }
 
-  // General formatting:
-  // 1. Split by hyphens
-  // 2. Capitalize each word
-  // 3. Join with spaces
   return name
+    .replace('-mega', ' (Mega Evolution)')
+    .replace('-gmax', ' (Gigantamax)')
+    .replace('-totem', ' (Totem)')
+    // TODO: Other suffixes go here
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')

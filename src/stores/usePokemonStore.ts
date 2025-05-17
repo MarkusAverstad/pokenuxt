@@ -71,7 +71,8 @@ export const usePokemonStore = defineStore('pokemon', {
       try {
         const response = await fetch('https://pokeapi.co/api/v2/type')
         const data = await response.json()
-        this.types = data.results
+        // Filter out unused types
+        this.types = data.results.filter((type: PokemonType) => !['stellar', 'unknown'].includes(type.name))
       }
       catch (error) {
         console.error('Failed to fetch Pokemon types:', error)
@@ -93,14 +94,10 @@ export const usePokemonStore = defineStore('pokemon', {
       }
     },
 
-    // Filter actions
-    setSearchQuery(query: string) {
-      this.searchQuery = query.toLowerCase()
-    },
-
     async filterByType(typeName: string) {
       if (this.selectedType === typeName) {
         this.selectedType = ''
+        await this.fetchPokemonPage() // Reset to normal list when deselecting
         return
       }
 
@@ -111,7 +108,8 @@ export const usePokemonStore = defineStore('pokemon', {
       try {
         const response = await fetch(`https://pokeapi.co/api/v2/type/${typeName}`)
         const data: TypeResponse = await response.json()
-        this.species = data.pokemon
+        // Transform the nested pokemon data to match PokemonSpecies format
+        this.species = data.pokemon.map(item => item.pokemon)
       }
       catch (error) {
         console.error('Failed to fetch Pokemon by type:', error)
@@ -133,14 +131,14 @@ export const usePokemonStore = defineStore('pokemon', {
     getPokemonList: (state): FormattedPokemonSpecies[] => {
       return state.species.map(pokemon => ({
         ...pokemon,
-        formattedName: formatPokemonName(pokemon.name),
+        formattedName: formatPokemonName(pokemon),
       }))
     },
 
     searchResults: (state): FormattedPokemonSpecies[] => {
-      if (!state.searchQuery) return []
+      if (!state.searchQuery && !state.selectedType) return []
 
-      const pokemonToSearch = state.allPokemon
+      const pokemonToSearch = state.selectedType ? state.species : state.allPokemon
 
       return pokemonToSearch
         .filter(pokemon =>
@@ -148,7 +146,7 @@ export const usePokemonStore = defineStore('pokemon', {
         )
         .map(pokemon => ({
           ...pokemon,
-          formattedName: formatPokemonName(pokemon.name),
+          formattedName: formatPokemonName(pokemon),
         }))
     },
 
