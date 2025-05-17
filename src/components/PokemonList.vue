@@ -15,7 +15,9 @@ withDefaults(defineProps<PokemonListProps>(), {
     <div
       v-for="(pokemonSpecies, index) in (pokemonList)"
       :key="'pokemon_' + index"
+      data-test="pokemon-card"
     >
+      >
       <NuxtLink
         :to="`/pokemon/${pokemonSpecies.name}`"
       >

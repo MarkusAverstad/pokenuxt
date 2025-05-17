@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PokemonList > should match snapshot 1`] = `
+"<div>
+  <div data-test="pokemon-card"> &gt; <nuxt-link-stub to="/pokemon/bulbasaur"></nuxt-link-stub>
+  </div>
+  <div data-test="pokemon-card"> &gt; <nuxt-link-stub to="/pokemon/charmander"></nuxt-link-stub>
+  </div>
+</div>"
+`;
