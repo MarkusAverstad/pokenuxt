@@ -1,4 +1,4 @@
-![logo.png](public/logo.png){width=30%}
+![logo.png](src/public/logo.png){width=30%}
 
 # PokéNuxt – Take‑Home Challenge
 

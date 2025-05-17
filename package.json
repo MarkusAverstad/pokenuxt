@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --open",
+    "dev": "nuxt dev --open --hostname=127.0.0.1",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
@@ -12,21 +12,26 @@
     "test": "nuxt test"
   },
   "dependencies": {
-    "@nuxt/eslint": "1.3.0",
-    "@nuxt/test-utils": "^3.18.0",
     "@pinia/nuxt": "0.11.0",
     "@unocss/nuxt": "^66.1.0",
-    "@vue/test-utils": "^2.4.6",
-    "eslint": "^9.0.0",
-    "happy-dom": "^17.4.6",
     "nuxt": "^3.17.2",
     "pinia": "^3.0.2",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.1"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.27.1",
+    "@nuxt/eslint": "1.3.0",
+    "@nuxt/test-utils": "^3.18.0",
+    "@vue/test-utils": "^2.4.6",
+    "eslint": "^9.26.0",
+    "eslint-plugin-vue": "^10.1.0",
+    "happy-dom": "^17.4.6",
     "typescript": "^5.8.3",
     "unocss": "^66.1.0",
     "vite-plugin-eslint2": "^5.0.3",
     "vitest": "^3.1.3",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.1"
-  },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+    "vue-tsc": "^2.2.10"
+  }
 }
