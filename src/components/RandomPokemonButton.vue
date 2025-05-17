@@ -10,7 +10,7 @@ const props = defineProps({
 
 const goToRandom = () => {
   const randomId = Math.floor(Math.random() * props.numPokemon) + 1
-  navigateTo(`/detail/${randomId}`)
+  navigateTo(`/pokemon/${randomId}`)
 }
 </script>
 

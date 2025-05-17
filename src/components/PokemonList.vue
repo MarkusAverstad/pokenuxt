@@ -17,7 +17,7 @@ withDefaults(defineProps<PokemonListProps>(), {
       :key="'pokemon_' + index"
     >
       <NuxtLink
-        :to="`detail/${pokemonSpecies.name}`"
+        :to="`/pokemon/${pokemonSpecies.name}`"
       >
         {{ pokemonSpecies.formattedName }}
       </NuxtLink>
