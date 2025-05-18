@@ -87,3 +87,63 @@ We recommend you to use **Typescript** for the whole project, but it’s not man
 Good luck & have fun! 🍀
 
 ![Pikachu](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png)
+
+
+**Pages:**
+1. - Home page showing the paginated list of Pokémon with a loading overlay `index.vue`
+2. - Dynamic Pokémon detail page showing individual Pokémon information with loading and error states `[id].vue`
+
+**Components:**
+1. - Grid display of Pokémon cards with: `PokemonList.vue`
+- Responsive grid layout
+- Empty state handling
+- Accessible grid structure
+- Card hover effects
+
+2. - Reusable component for displaying Pokémon sprites: `PokemonSprite.vue`
+- Handles both regular and shiny sprites
+- Lazy loading of images
+- Accessible image descriptions
+- Fallback handling when URL is not available
+
+3. - Button component that: `RandomPokemonButton.vue`
+- Generates random Pokémon selection
+- Navigates to random Pokémon detail page
+- Shows tooltip with total count
+
+4. `Paginator` (referenced but not shown) - Navigation component for Pokémon list pagination
+5. `PokemonDetail` (referenced but not shown) - Detailed view component for individual Pokémon
+
+**Composables:**
+1. - Manages individual Pokémon data: `usePokemonDetails`
+- Fetches both species and Pokémon data
+- Handles loading states
+- Error management
+- Combines data into unified format
+
+2. `useFormatPokemonId` (referenced) - Utility for formatting Pokémon IDs
+
+**Stores:**
+1. - Manages global Pokémon state:
+- Handles pagination
+- Stores Pokémon list data
+- Tracks loading states
+- Maintains total Pokémon count
+
+`usePokemonStore`
+
+The application follows a clean architecture with:
+- Clear separation of concerns
+- Reusable components
+- Centralized state management
+- Strong accessibility focus
+- Error handling and loading states
+- Responsive design
+- Data formatting utilities
+
+The app uses modern Vue.js features including:
+- Composition API with `<script setup>`
+- TypeScript integration
+- Vue Router for navigation
+- Pinia for state management
+- UnoCSS for styling

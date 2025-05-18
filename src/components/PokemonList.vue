@@ -37,6 +37,12 @@ withDefaults(defineProps<PokemonListProps>(), {
           class="flex flex-col items-center justify-center min-h-[80px]"
           role="presentation"
         >
+          <img
+            :alt="`${pokemonSpecies.formattedName}, Pokémon number ${formatId(pokemonSpecies.url, 0)}`"
+            :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${formatId(pokemonSpecies.url, 0)}.png`"
+            loading="lazy"
+            decoding="async"
+          >
           <h3
             class="font-medium text-gray-800 group-hover:text-blue-600
                    transition-colors duration-200 capitalize text-center"
