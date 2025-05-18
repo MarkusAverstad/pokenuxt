@@ -71,7 +71,33 @@ const { getTypeColor } = useTypeColors()
           role="group"
           aria-label="Pokemon sprites gallery"
         >
-          <!-- PokemonSprite components remain the same -->
+          <PokemonSprite
+            :name="pokemon.name"
+            :url="pokemon.sprites.front_default"
+            label="Front"
+          />
+
+          <PokemonSprite
+            v-if="pokemon.sprites.back_default"
+            :name="pokemon.name"
+            :url="pokemon.sprites.back_default"
+            label="Back"
+          />
+
+          <PokemonSprite
+            :name="pokemon.name"
+            :url="pokemon.sprites.front_shiny"
+            label="Shiny Front"
+            :shiny="true"
+          />
+
+          <PokemonSprite
+            v-if="pokemon.sprites.back_shiny"
+            :name="pokemon.name"
+            :url="pokemon.sprites.back_shiny"
+            label="Shiny Back"
+            :shiny="true"
+          />
         </div>
       </section>
 
