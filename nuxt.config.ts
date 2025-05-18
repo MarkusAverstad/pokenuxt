@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@unocss/nuxt',
     '@pinia/nuxt',
+    'nuxt-icon',
   ],
   devtools: { enabled: true },
   srcDir: './src',

@@ -1,21 +1,19 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
-
-const props = defineProps({
-  numPokemon: {
-    type: Number as PropType<number>,
-    required: true,
-  },
-})
+const { pokemonCount } = usePokemonStore()
 
 const goToRandom = () => {
-  const randomId = Math.floor(Math.random() * props.numPokemon) + 1
+  const randomId = Math.floor(Math.random() * pokemonCount) + 1
   navigateTo(`/pokemon/${randomId}`)
 }
 </script>
 
 <template>
-  <button @click="goToRandom">
+  <button
+    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2
+                     rounded-lg transition-colors duration-200 shadow-sm
+                     hover:shadow-md"
+    @click="goToRandom"
+  >
     Random Pokémon
   </button>
 </template>
