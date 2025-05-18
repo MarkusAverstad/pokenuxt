@@ -6,7 +6,7 @@ const props = defineProps<{
 }>()
 
 const englishFlavorText = computed(() => {
-  return props.pokemon.flavor_text_entries
+  return props.pokemon.flavorText
     .find(entry => entry.language.name === 'en')
     ?.flavor_text.replace(/[\n\f]/g, ' ') || ''
 })

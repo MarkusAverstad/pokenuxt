@@ -3,10 +3,10 @@ import { resolve } from 'path'
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
+    '@nuxt/icon',
     '@nuxt/test-utils',
     '@unocss/nuxt',
     '@pinia/nuxt',
-    'nuxt-icon',
   ],
   devtools: { enabled: true },
   srcDir: './src',

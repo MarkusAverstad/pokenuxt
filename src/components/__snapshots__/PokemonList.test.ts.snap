@@ -1,12 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PokemonList > should match snapshot 1`] = `
-"<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-  <div data-test="pokemon-card" class="group">
-    <nuxt-link-stub to="/pokemon/bulbasaur" class="block bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-1"></nuxt-link-stub>
+"<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" role="grid" aria-label="Pokemon list">
+  <div data-test="pokemon-card" class="group" role="gridcell">
+    <nuxt-link-stub to="/pokemon/bulbasaur" class="block bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-1" aria-label="View details for Bulbasaur, Pokemon number 001"></nuxt-link-stub>
   </div>
-  <div data-test="pokemon-card" class="group">
-    <nuxt-link-stub to="/pokemon/charmander" class="block bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-1"></nuxt-link-stub>
+  <div data-test="pokemon-card" class="group" role="gridcell">
+    <nuxt-link-stub to="/pokemon/charmander" class="block bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-1" aria-label="View details for Charmander, Pokemon number 004"></nuxt-link-stub>
   </div><!-- Empty State -->
   <!--v-if-->
 </div>"

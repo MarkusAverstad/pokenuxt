@@ -39,7 +39,7 @@ export interface PokemonDetails {
     front_shiny: string
     back_shiny?: string
   }
-  flavor_text_entries: FlavorTextEntry[]
+  flavorText: FlavorTextEntry[]
   types: TypeSlot[]
   ability: AbilityEntry
   hiddenAbility?: AbilityEntry

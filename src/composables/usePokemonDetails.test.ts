@@ -10,8 +10,20 @@ describe('usePokemonDetails', () => {
   const fetchSpy = vi.spyOn(global, 'fetch')
     .mockImplementation((url: RequestInfo | URL) =>
       Promise.resolve(mockResponse(url.toString().includes('species')
-        ? { name: 'charmander-species' }
-        : { name: 'charmander' })))
+        ? {
+            name: 'charmander-species',
+            flavor_text_entries: [],
+          }
+        : {
+            name: 'charmander',
+            id: 4,
+            sprites: [{ 'front-default': 'url-to-sprite' }],
+            types: [],
+            abilities: [
+              { is_hidden: false, ability: { name: 'blaze' } },
+              { is_hidden: true, ability: { name: 'solar-power' } },
+            ],
+          })))
 
   beforeEach(() => {
     vi.clearAllMocks()
@@ -53,10 +65,15 @@ describe('usePokemonDetails', () => {
       await fetchPokemonDetails('charmander')
 
       expect(pokemon.value).toEqual({
-        name: 'charmander',
-        species: {
-          name: 'charmander-species',
-        },
+        id: 4,
+        name: 'charmander-species',
+        types: [],
+        flavorText: [],
+        ability: { name: 'blaze' },
+        hiddenAbility: { name: 'solar-power' },
+        sprites: [
+          { 'front-default': 'url-to-sprite' },
+        ],
       })
     })
   })

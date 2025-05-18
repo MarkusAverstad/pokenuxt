@@ -30,7 +30,7 @@ export function usePokemonDetails() {
         id: pokemonData.id,
         name: speciesData.name,
         sprites: pokemonData.sprites,
-        flavor_text_entries: speciesData.flavor_text_entries,
+        flavorText: speciesData.flavor_text_entries,
         types: pokemonData.types,
         ability: pokemonData.abilities.find((ability: AbilitySlot) => !ability.is_hidden).ability,
         hiddenAbility: pokemonData.abilities.find((ability: AbilitySlot) => ability.is_hidden)?.ability
