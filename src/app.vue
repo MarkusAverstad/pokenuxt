@@ -7,6 +7,9 @@ await fetchPokemonPage()
 
 useHead({
   title: 'PokéNuxt',
+  htmlAttrs: {
+    lang: 'en', // Add language attribute
+  },
   bodyAttrs: {
     class: 'bg-stone-100',
   },
@@ -22,22 +25,35 @@ useHead({
 
 <template>
   <div class="min-h-screen flex flex-col">
+    <!-- Skip Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2
+             bg-blue-600 text-white px-4 py-2 rounded-md z-50"
+    >
+      Skip to main content
+    </a>
+
     <NuxtLayout>
-      <header class="bg-white shadow-sm sticky top-0 z-10">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header
+        class="bg-white shadow-sm sticky top-0 z-10"
+        role="banner"
+      >
+        <nav
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          aria-label="Main navigation"
+        >
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center space-x-6">
               <NuxtLink
                 to="/"
-                class="text-gray-700 hover:text-blue-600 font-medium
-                       transition-colors duration-200"
+                class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
               >
                 Home
               </NuxtLink>
               <NuxtLink
                 to="/search"
-                class="text-gray-700 hover:text-blue-600 font-medium
-                       transition-colors duration-200"
+                class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
               >
                 Search
               </NuxtLink>
@@ -54,9 +70,21 @@ useHead({
         </nav>
       </header>
 
-      <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main
+        id="main-content"
+        class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8"
+        tabindex="-1"
+      >
         <NuxtPage />
       </main>
     </NuxtLayout>
   </div>
 </template>
+
+<style>
+/* Ensure focus styles are visible */
+*:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+</style>
