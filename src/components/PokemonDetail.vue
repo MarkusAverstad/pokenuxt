@@ -113,6 +113,19 @@ const { getTypeColor } = useTypeColors()
               </span>
             </div>
           </div>
+
+          <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+            <span class="text-gray-600 font-medium">Ability</span>
+            <span class="text-gray-900 capitalize">{{ pokemon.ability.name }}</span>
+          </div>
+
+          <div
+            v-if="pokemon.hiddenAbility"
+            class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+          >
+            <span class="text-gray-600 font-medium">Hidden Ability</span>
+            <span class="text-gray-900 capitalize">{{ pokemon.hiddenAbility.name }}</span>
+          </div>
         </div>
       </section>
     </div>

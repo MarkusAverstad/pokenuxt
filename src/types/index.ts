@@ -19,6 +19,17 @@ interface TypeSlot {
   type: PokemonType
 }
 
+export interface AbilityEntry {
+  name: string
+  url: string
+}
+
+export interface AbilitySlot {
+  is_hidden: boolean
+  slot: number
+  ability: AbilityEntry
+}
+
 export interface PokemonDetails {
   id: string
   name: string
@@ -30,6 +41,8 @@ export interface PokemonDetails {
   }
   flavor_text_entries: FlavorTextEntry[]
   types: TypeSlot[]
+  ability: AbilityEntry
+  hiddenAbility?: AbilityEntry
 }
 
 export interface PokemonSpecies {

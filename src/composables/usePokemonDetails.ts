@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { computed, ref } from 'vue'
-import type { PokemonDetails } from '@types'
+import type { PokemonDetails, AbilitySlot } from '@types'
 
 interface PokemonError {
   message: string
@@ -32,9 +32,12 @@ export function usePokemonDetails() {
         sprites: pokemonData.sprites,
         flavor_text_entries: speciesData.flavor_text_entries,
         types: pokemonData.types,
+        ability: pokemonData.abilities.find((ability: AbilitySlot) => !ability.is_hidden).ability,
+        hiddenAbility: pokemonData.abilities.find((ability: AbilitySlot) => ability.is_hidden)?.ability
       }
     }
     catch (e) {
+      console.error(e)
       errorRef.value = e as PokemonError
     }
     finally {
