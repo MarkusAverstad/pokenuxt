@@ -1,3 +1,24 @@
+interface FlavorTextEntry {
+  flavor_text: string
+  language: {
+    name: string
+  }
+  version: {
+    name: string
+    url: string
+  }
+}
+
+export interface PokemonType {
+  name: string
+  url: string
+}
+
+interface TypeSlot {
+  slot: number
+  type: PokemonType
+}
+
 export interface PokemonDetails {
   id: string
   name: string
@@ -7,6 +28,8 @@ export interface PokemonDetails {
     front_shiny: string
     back_shiny?: string
   }
+  flavor_text_entries: FlavorTextEntry[]
+  types: TypeSlot[]
 }
 
 export interface PokemonSpecies {
@@ -23,11 +46,6 @@ export interface PokemonSpeciesList {
   next: string | null
   previous: string | null
   results: PokemonSpecies[]
-}
-
-export interface PokemonType {
-  name: string
-  url: string
 }
 
 interface PokemonInType {

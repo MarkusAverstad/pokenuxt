@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     '@stores': resolve(__dirname, './src/stores'),
     '@types': resolve(__dirname, './src/types'),
     '@utils': resolve(__dirname, './src/utils'),
+    '@composables': resolve(__dirname, './src/composables'),
   },
   ignore: [
     '**/*.test.*',

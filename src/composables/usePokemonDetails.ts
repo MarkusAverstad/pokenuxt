@@ -27,8 +27,11 @@ export function usePokemonDetails() {
       ])
 
       pokemonRef.value = {
-        ...pokemonData,
-        species: speciesData,
+        id: pokemonData.id,
+        name: pokemonData.name,
+        sprites: pokemonData.sprites,
+        flavor_text_entries: speciesData.flavor_text_entries,
+        types: pokemonData.types,
       }
     }
     catch (e) {

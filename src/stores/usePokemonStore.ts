@@ -136,13 +136,18 @@ export const usePokemonStore = defineStore('pokemon', {
     },
 
     searchResults: (state): FormattedPokemonSpecies[] => {
-      if (!state.searchQuery && !state.selectedType) return []
+      // If no search or type filter, return the current page of Pokemon
+      if (!state.searchQuery && !state.selectedType)
+        return state.species.map(pokemon => ({
+          ...pokemon,
+          formattedName: formatPokemonName(pokemon),
+        }))
 
       const pokemonToSearch = state.selectedType ? state.species : state.allPokemon
 
       return pokemonToSearch
         .filter(pokemon =>
-          pokemon.name.toLowerCase().includes(state.searchQuery),
+          pokemon.name.toLowerCase().includes(state.searchQuery.toLowerCase()),
         )
         .map(pokemon => ({
           ...pokemon,

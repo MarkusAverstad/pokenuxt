@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { usePokemonStore } from '@stores'
+import TypeFilterButtons from '@/components/TypeFilterButtons.vue'
 
 const pokemonStore = usePokemonStore()
 
@@ -11,29 +12,7 @@ await pokemonStore.fetchAllPokemon()
   <div class="w-full max-w-6xl mx-auto p-4">
     <!-- Search Section -->
     <div class="mb-8 bg-white rounded-lg shadow-sm p-6">
-      <!-- Type Filters -->
-      <div class="mb-6">
-        <h2 class="text-lg font-semibold text-gray-700 mb-3">
-          Filter by Type
-        </h2>
-        <div class="flex flex-wrap gap-2">
-          <button
-            v-for="type in pokemonStore.types"
-            :key="'type_' + type.name"
-            :class="[
-              'px-4 py-2 rounded-full font-medium transition-colors duration-200',
-              'hover:transform hover:scale-105 active:scale-95',
-              pokemonStore.selectedType === type.name
-                ? 'bg-blue-500 text-white shadow-md hover:bg-blue-600'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-            ]"
-            @click="pokemonStore.filterByType(type.name)"
-          >
-            <span class="capitalize">{{ type.name }}</span>
-          </button>
-        </div>
-      </div>
-
+      <TypeFilterButtons />
       <!-- Search Input -->
       <div>
         <label

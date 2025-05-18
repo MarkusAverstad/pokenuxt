@@ -2,8 +2,7 @@
 import '@unocss/reset/tailwind.css'
 import { usePokemonStore } from '@stores'
 
-const { fetchPokemonPage, pokemonCount } = usePokemonStore()
-
+const { fetchPokemonPage } = usePokemonStore()
 await fetchPokemonPage()
 
 useHead({
@@ -42,6 +41,13 @@ useHead({
               >
                 Search
               </NuxtLink>
+            </div>
+            <div class="py-3">
+              <div class="max-w-6xl mx-auto px-4">
+                <h1 class="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center">
+                  Welcome to PokéNuxt!
+                </h1>
+              </div>
             </div>
             <RandomPokemonButton />
           </div>
