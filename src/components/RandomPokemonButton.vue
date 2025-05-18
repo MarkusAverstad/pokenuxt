@@ -12,6 +12,8 @@ const goToRandom = () => {
     class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2
                      rounded-lg transition-colors duration-200 shadow-sm
                      hover:shadow-md"
+    aria-label="Show random Pokémon"
+    :title="'View a random Pokémon out of ' + pokemonCount + ' available'"
     @click="goToRandom"
   >
     Random Pokémon
