@@ -97,7 +97,6 @@ export const usePokemonStore = defineStore('pokemon', {
     async filterByType(typeName: string) {
       if (this.selectedType === typeName) {
         this.selectedType = ''
-        await this.fetchPokemonPage() // Reset to normal list when deselecting
         return
       }
 
@@ -108,7 +107,7 @@ export const usePokemonStore = defineStore('pokemon', {
       try {
         const response = await fetch(`https://pokeapi.co/api/v2/type/${typeName}`)
         const data: TypeResponse = await response.json()
-        // Transform the nested pokemon data to match PokemonSpecies format
+        // Transform the nested Pokémon data to match PokemonSpecies format
         this.species = data.pokemon.map(item => item.pokemon)
       }
       catch (error) {
@@ -118,16 +117,9 @@ export const usePokemonStore = defineStore('pokemon', {
         this.isLoading = false
       }
     },
-
-    clearFilters() {
-      this.searchQuery = ''
-      this.selectedType = ''
-      this.fetchPokemonPage(1)
-    },
   },
 
   getters: {
-    // Formatted Pokémon lists
     getPokemonList: (state): FormattedPokemonSpecies[] => {
       return state.species.map(pokemon => ({
         ...pokemon,
@@ -152,7 +144,6 @@ export const usePokemonStore = defineStore('pokemon', {
         }))
     },
 
-    // Pagination helpers
     totalPages: state => Math.ceil(state.pokemonCount / state.itemsPerPage),
     hasNextPage: state => state.nextUrl !== null,
     hasPreviousPage: state => state.previousUrl !== null,
