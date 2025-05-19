@@ -45,7 +45,7 @@ export const usePokemonStore = defineStore('pokemon', {
         this.previousUrl = data.previous
       }
       catch (error) {
-        console.error('Failed to fetch Pokemon:', error)
+        console.error('Failed to fetch Pokémon:', error)
       }
       finally {
         this.isLoading = false
@@ -60,7 +60,7 @@ export const usePokemonStore = defineStore('pokemon', {
         this.allPokemon = data.results
       }
       catch (error) {
-        console.error('Failed to fetch all Pokemon:', error)
+        console.error('Failed to fetch all Pokémon:', error)
       }
       finally {
         this.isLoading = false
@@ -75,7 +75,7 @@ export const usePokemonStore = defineStore('pokemon', {
         this.types = data.results.filter((type: PokemonType) => !['stellar', 'unknown'].includes(type.name))
       }
       catch (error) {
-        console.error('Failed to fetch Pokemon types:', error)
+        console.error('Failed to fetch Pokémon types:', error)
       }
     },
 
@@ -112,7 +112,7 @@ export const usePokemonStore = defineStore('pokemon', {
         this.species = data.pokemon.map(item => item.pokemon)
       }
       catch (error) {
-        console.error('Failed to fetch Pokemon by type:', error)
+        console.error('Failed to fetch Pokémon by type:', error)
       }
       finally {
         this.isLoading = false
@@ -136,12 +136,9 @@ export const usePokemonStore = defineStore('pokemon', {
     },
 
     searchResults: (state): FormattedPokemonSpecies[] => {
-      // If no search or type filter, return the current page of Pokemon
-      if (!state.searchQuery && !state.selectedType)
-        return state.species.map(pokemon => ({
-          ...pokemon,
-          formattedName: formatPokemonName(pokemon),
-        }))
+      if (!state.searchQuery && !state.selectedType) {
+        return []
+      }
 
       const pokemonToSearch = state.selectedType ? state.species : state.allPokemon
 

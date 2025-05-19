@@ -8,7 +8,7 @@ await pokemonStore.fetchPokemonPage(1)
 <template>
   <main
     class="min-h-screen flex flex-col"
-    aria-label="Pokemon list page"
+    aria-label="Pokémon list page"
   >
     <!-- Loading Overlay -->
     <div
@@ -64,8 +64,8 @@ await pokemonStore.fetchPokemonPage(1)
       aria-atomic="true"
       class="sr-only"
     >
-      {{ pokemonStore.isLoading ? 'Loading Pokemon list...'
-        : `Showing ${pokemonStore.getPokemonList.length} Pokemon` }}
+      {{ pokemonStore.isLoading ? 'Loading Pokémon list...'
+        : `Showing ${pokemonStore.getPokemonList.length} Pokémon` }}
     </div>
   </main>
 </template>

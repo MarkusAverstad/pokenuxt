@@ -73,7 +73,6 @@ await pokemonStore.fetchAllPokemon()
       </div>
     </section>
 
-    <!-- Pokemon List -->
     <section
       class="bg-white rounded-lg shadow-sm p-6"
       aria-labelledby="results-heading"

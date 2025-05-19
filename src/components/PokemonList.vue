@@ -16,7 +16,7 @@ withDefaults(defineProps<PokemonListProps>(), {
   <div
     class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
     role="grid"
-    aria-label="Pokemon list"
+    aria-label="Pokémon list"
   >
     <div
       v-for="(pokemonSpecies, index) in pokemonList"
@@ -31,7 +31,7 @@ withDefaults(defineProps<PokemonListProps>(), {
                hover:shadow-md transition-all duration-200
                border border-gray-100 hover:border-blue-200
                transform hover:-translate-y-1"
-        :aria-label="`View details for ${pokemonSpecies.formattedName}, Pokemon number ${formatId(pokemonSpecies.url)}`"
+        :aria-label="`View details for ${pokemonSpecies.formattedName}, Pokémon number ${formatId(pokemonSpecies.url)}`"
       >
         <div
           class="flex flex-col items-center justify-center min-h-[80px]"
@@ -51,7 +51,7 @@ withDefaults(defineProps<PokemonListProps>(), {
           </h3>
           <span
             class="text-sm text-gray-500 mt-1"
-            aria-label="Pokemon number"
+            aria-label="Pokémon number"
           >
             #{{ formatId(pokemonSpecies.url) }}
           </span>

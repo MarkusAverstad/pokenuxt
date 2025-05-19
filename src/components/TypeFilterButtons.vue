@@ -95,7 +95,7 @@ onMounted(() => {
         <div
           class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2"
           role="group"
-          aria-label="Pokemon type filters"
+          aria-label="Pokémon type filters"
         >
           <button
             v-for="type in pokemonStore.types"

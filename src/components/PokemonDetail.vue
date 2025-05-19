@@ -23,7 +23,7 @@ const { getTypeColor } = useTypeColors()
       <h1 class="text-4xl font-bold capitalize mb-3">
         <span
           class="text-gray-500 mr-2"
-          aria-label="Pokemon number"
+          aria-label="Pokémon number"
         >
           #{{ pokemon.id }}
         </span>
@@ -33,7 +33,7 @@ const { getTypeColor } = useTypeColors()
       <div
         class="flex justify-center gap-2 mb-4"
         role="list"
-        aria-label="Pokemon types"
+        aria-label="Pokémon types"
       >
         <span
           v-for="typeSlot in pokemon.types"
@@ -49,7 +49,7 @@ const { getTypeColor } = useTypeColors()
       </div>
       <p
         class="text-gray-600 max-w-2xl mx-auto"
-        aria-label="Pokemon description"
+        aria-label="Pokémon description"
       >
         {{ englishFlavorText }}
       </p>
@@ -69,7 +69,7 @@ const { getTypeColor } = useTypeColors()
         <div
           class="grid grid-cols-2 gap-4"
           role="group"
-          aria-label="Pokemon sprites gallery"
+          aria-label="Pokémon sprites gallery"
         >
           <PokemonSprite
             :name="pokemon.name"
@@ -115,7 +115,7 @@ const { getTypeColor } = useTypeColors()
           <div
             class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
             role="group"
-            aria-label="Pokemon ID"
+            aria-label="Pokémon ID"
           >
             <span class="text-gray-600 font-medium">ID</span>
             <span class="text-gray-900">#{{ pokemon.id }}</span>
@@ -124,7 +124,7 @@ const { getTypeColor } = useTypeColors()
           <div
             class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
             role="group"
-            aria-label="Pokemon name"
+            aria-label="Pokémon name"
           >
             <span class="text-gray-600 font-medium">Name</span>
             <span class="text-gray-900 capitalize">{{ pokemon.name }}</span>
@@ -133,7 +133,7 @@ const { getTypeColor } = useTypeColors()
           <div
             class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
             role="group"
-            aria-label="Pokemon types list"
+            aria-label="Pokémon types list"
           >
             <span class="text-gray-600 font-medium">Types</span>
             <div
@@ -157,7 +157,7 @@ const { getTypeColor } = useTypeColors()
           <div
             class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
             role="group"
-            aria-label="Pokemon ability"
+            aria-label="Pokémon ability"
           >
             <span class="text-gray-600 font-medium">Ability</span>
             <span class="text-gray-900 capitalize">{{ pokemon.ability.name }}</span>
@@ -167,7 +167,7 @@ const { getTypeColor } = useTypeColors()
             v-if="pokemon.hiddenAbility"
             class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
             role="group"
-            aria-label="Pokemon hidden ability"
+            aria-label="Pokémon hidden ability"
           >
             <span class="text-gray-600 font-medium">Hidden Ability</span>
             <span class="text-gray-900 capitalize">{{ pokemon.hiddenAbility.name }}</span>
@@ -179,13 +179,13 @@ const { getTypeColor } = useTypeColors()
     <footer
       class="mt-8 flex justify-center"
       role="navigation"
-      aria-label="Pokemon navigation"
+      aria-label="Pokémon navigation"
     >
       <nuxt-link
         v-if="Number(pokemon.id) > 1"
         :to="`/pokemon/${Number(pokemon.id) - 1}`"
         class="px-4 py-2 rounded-lg font-medium bg-blue-500 text-white hover:bg-blue-600 transition-colors mx-2 flex items-center"
-        :aria-label="`Go to previous Pokemon number ${Number(pokemon.id) - 1}`"
+        :aria-label="`Go to previous Pokémon number ${Number(pokemon.id) - 1}`"
       >
         <Icon
           name="ph:caret-left-bold"
@@ -198,7 +198,7 @@ const { getTypeColor } = useTypeColors()
       <nuxt-link
         :to="`/pokemon/${Number(pokemon.id) + 1}`"
         class="px-4 py-2 rounded-lg font-medium bg-blue-500 text-white hover:bg-blue-600 transition-colors mx-2 flex items-center"
-        :aria-label="`Go to next Pokemon number ${Number(pokemon.id) + 1}`"
+        :aria-label="`Go to next Pokémon number ${Number(pokemon.id) + 1}`"
       >
         Next
         <Icon
