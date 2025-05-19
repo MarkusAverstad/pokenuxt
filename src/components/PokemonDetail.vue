@@ -178,7 +178,7 @@ const { getTypeColor } = useTypeColors()
 
     <footer
       class="mt-8 flex justify-center"
-      role="navigation"
+      role="contentinfo"
       aria-label="Pokémon navigation"
     >
       <nuxt-link
