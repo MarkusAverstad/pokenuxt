@@ -135,7 +135,7 @@ const { getTypeColor } = useTypeColors()
             role="group"
             aria-label="Pokémon types list"
           >
-            <span class="text-gray-600 font-medium">Types</span>
+            <span class="text-gray-600 font-medium">Type</span>
             <div
               class="flex gap-2"
               role="list"
